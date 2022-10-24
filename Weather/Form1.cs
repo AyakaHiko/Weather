@@ -90,11 +90,11 @@ namespace Weather
                 switch (node.Name)
                 {
                     case "temperature":
-                        var form = new NumberFormatInfo
+                        var provider = new NumberFormatInfo
                         {
                             NumberDecimalSeparator = "."
                         };
-                        weather.Temperature = Convert.ToDecimal(value, form);
+                        weather.Temperature = Convert.ToDecimal(value, provider);
                         break;
                     case "humidity":
                         weather.Humidity = Convert.ToInt32(value);
