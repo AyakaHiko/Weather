@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -89,7 +90,11 @@ namespace Weather
                 switch (node.Name)
                 {
                     case "temperature":
-                        weather.Temperature = Convert.ToDecimal(value);
+                        var form = new NumberFormatInfo
+                        {
+                            NumberDecimalSeparator = "."
+                        };
+                        weather.Temperature = Convert.ToDecimal(value, form);
                         break;
                     case "humidity":
                         weather.Humidity = Convert.ToInt32(value);
