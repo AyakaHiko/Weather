@@ -26,7 +26,7 @@ namespace Weather
         {
             try
             {
-                var data = WeatherServer.GetWeather(cityBox.Text);
+                var data = WeatherServer.GetWeather(cityBox.Text.Trim());
                 if (InvokeRequired)
                     Invoke(new Action(() => _fillWeather(data)));
                 else
@@ -47,11 +47,7 @@ namespace Weather
             temperatureInfo.Text = data.Temperature.ToString();
 
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        
     }
 
     public class WeatherServer
